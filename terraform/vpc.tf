@@ -24,3 +24,23 @@ module "vpc" {
     "kubernetes.io/role/internal-elb"             = 1
   }
 }
+
+
+resource "aws_security_group" "service" {
+  name        = "tf-${local.sg_name}"
+  vpc_id      = "${module.vpc.vpc_id}"
+
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+}

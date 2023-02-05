@@ -18,7 +18,7 @@ resource "aws_docdb_cluster" "service" {
   master_username                 = "mongo"
   master_password                 = "mongo123"
   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.service.name
-  #  vpc_security_group_ids          = ["${aws_security_group.service.id}"]
+  vpc_security_group_ids          = ["${aws_security_group.service.id}"]
 }
 
 resource "aws_docdb_cluster_parameter_group" "service" {

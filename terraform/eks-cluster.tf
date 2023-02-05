@@ -2,6 +2,10 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.26.6"
 
+  node_security_group_tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = null
+  }
+
   cluster_name    = local.cluster_name
   cluster_version = "1.23"
 
