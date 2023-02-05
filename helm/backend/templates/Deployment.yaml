@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name:  {{ .Release.Name }}
-          image: docker.io/library/{{ .Release.Name }}:latest
-          imagePullPolicy: Never
+          image: public.ecr.aws/l4p6m9l6/devops-course-backend:0.1
+          imagePullPolicy: Always
           env:
             - name: MONGO_URI
               valueFrom:
